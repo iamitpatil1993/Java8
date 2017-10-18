@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CollectorsExample {
 	static List<Dish> dishs = new ArrayList<>();
@@ -47,7 +48,7 @@ public class CollectorsExample {
 	/*
 	 * @apiNote asdas
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		System.out.println("\n\n------------- counting number of dishes in stream ----------------");
 		System.out.println("> number of dishes in menu :: " + dishs.stream().count());
@@ -207,6 +208,12 @@ public class CollectorsExample {
 		.forEach((isVegetarian, commmaSeparatedDishListAsString) -> {
 			System.out.println(isVegetarian + " :: " + commmaSeparatedDishListAsString);
 		});
+		
+		System.out.println(IntStream.iterate(1, no -> no + 1).limit(50).parallel().reduce(0, Integer::sum));
+		
+	
+		
+		
 	}
 
 }
